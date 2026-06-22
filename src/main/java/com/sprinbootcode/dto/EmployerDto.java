@@ -1,7 +1,7 @@
 package com.sprinbootcode.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 
 public record EmployerDto(@NotBlank(message = "name is mandatory")
                           String companyName,

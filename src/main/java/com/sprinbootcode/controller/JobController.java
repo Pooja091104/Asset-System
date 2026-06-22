@@ -4,7 +4,7 @@ import com.sprinbootcode.dto.CreateJobRequestDto;
 import com.sprinbootcode.service.JobService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -26,13 +26,13 @@ public class JobController {
 
     @GetMapping("/getAll")
     public List<CreateJobRequestDto> getAllJobs(
-            Principal principal,
+
             @RequestParam(defaultValue = "0", required = false) int page,
             @RequestParam(defaultValue = "10", required = false) int size) {
 
-        String username = principal.getName();
 
-        return jobService.getAllJobs(page, size, username);
+
+        return jobService.getAllJobs(page, size);
     }
 
 }

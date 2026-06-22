@@ -1,7 +1,7 @@
 package com.sprinbootcode.controller;
 
 import com.sprinbootcode.dto.EmployerDto;
-import com.sprinbootcode.dto.JobSeekerDto;
+
 import com.sprinbootcode.service.EmployerService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.sprinbootcode.controller;
 
 import com.sprinbootcode.dto.ApplicationDto;
-import com.sprinbootcode.dto.ApplicationReqDto;
+
 import com.sprinbootcode.service.ApplicationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

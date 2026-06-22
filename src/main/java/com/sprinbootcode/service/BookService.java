@@ -21,7 +21,7 @@ public class BookService {
         List<Book> list=bookRepository.getBookbyAuthor(username,pageable).getContent();
         return list
                 .stream()
-                .map(BookMapper::MapEntityToDto)
+                .map(BookMapper::mapEntityToDto)
                 .toList();
     }
 }

@@ -6,6 +6,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -17,9 +19,15 @@ import java.util.function.Function;
 @Component
 public class JwtUtility {
 
-    private final String SECRET_KEY = "rhas34523gjsdafhkjhhq4352h3lkjhmnv345234khgkj5k43gh";
-    SecretKey secretKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY)); //this line takes the BASE64 string and decodes it into raw bytes then converts it into a valid cryptographic key suitable for HMAC-SHA algorithms
+    @Value("${jwt.secret}")
+    private String key;
 
+    SecretKey secretKey;
+//this line takes the BASE64 string and decodes it into raw bytes then converts it into a valid cryptographic key suitable for HMAC-SHA algorithms
+    @PostConstruct // This delays the initialization of SecretKey until Spring reads properties file
+    public void init(){
+        secretKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(key));
+    }
 
     public String generateToken(String username){
         Map<String , Object> claims = new HashMap<>();

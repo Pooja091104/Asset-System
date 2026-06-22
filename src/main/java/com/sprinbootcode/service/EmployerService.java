@@ -22,8 +22,8 @@ public class EmployerService {
     private final EmployerRepository employerRepository;
 
     public void add(@Valid EmployerDto dto) {
-        Employer employer= EmployeMapper.MapDtoToEntity(dto);
-        User user= UserMapper.MapDtoToEntity(dto);
+        Employer employer= EmployeMapper.mapDtoToEntity(dto);
+        User user= UserMapper.mapEmployerDtoToEntity(dto);
         user.setRole(Role.EMPLOYER);
         user.setPassword(passwordEncoder.encode(dto.password()));
         user=userService.save(user);

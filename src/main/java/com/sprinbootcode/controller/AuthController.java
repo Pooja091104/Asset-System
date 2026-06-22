@@ -4,7 +4,7 @@ import com.sprinbootcode.dto.TokenDto;
 import com.sprinbootcode.service.UserService;
 import com.sprinbootcode.utility.JwtUtility;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

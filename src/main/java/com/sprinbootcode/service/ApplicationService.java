@@ -27,7 +27,7 @@ public class ApplicationService {
         Pageable pageable= PageRequest.of(page,size);
         List<Application> list=applicationRepository.findByJobSeekerUserUsername(username,pageable).getContent();
         return list.stream()
-                .map(ApplicationMapper::MapEntityToDto)
+                .map(ApplicationMapper::mapEntityToDto)
                 .toList();
     }
 

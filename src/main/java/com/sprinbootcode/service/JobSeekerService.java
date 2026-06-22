@@ -22,8 +22,8 @@ public class JobSeekerService {
     private final JobSeekerRepository jobSeekerRepository;
 
     public void add(@Valid JobSeekerDto dto) {
-        JobSeeker jobSeeker= JobSeekerMapper.MapDtoEntity(dto);
-        User user= UserMapper.MapDtoToEntity(dto);
+        JobSeeker jobSeeker= JobSeekerMapper.mapDtoToEntity(dto);
+        User user= UserMapper.mapJobSeekerDtoToEntity(dto);
         user.setRole(Role.SEEKER);
         user.setPassword(passwordEncoder.encode(dto.password()));
         user=userService.save(user);

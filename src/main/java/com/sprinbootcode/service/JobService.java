@@ -20,17 +20,17 @@ public class JobService {
     private final JobRepository jobRepository;
 
     public void postjob(@Valid CreateJobRequestDto dto, String employeename) {
-        Job job= JobMapper.MapDtoToEntity(dto);
+        Job job= JobMapper.mapDtoToEntity(dto);
         Employer employer=employerService.getByUsername(employeename);
         job.setEmployer(employer);
         jobRepository.save(job);
     }
 
-    public List<CreateJobRequestDto> getAllJobs(int page, int size, String username) {
+    public List<CreateJobRequestDto> getAllJobs(int page, int size) {
         Pageable pageable= PageRequest.of(page,size);
         return jobRepository.findAll(pageable)
                 .stream()
-                .map(JobMapper::MapEntityToDto)
+                .map(JobMapper::mapEntityToDto)
                 .toList();
     }
 }
